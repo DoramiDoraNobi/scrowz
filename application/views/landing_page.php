@@ -25,7 +25,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="product.html">Product</a>
+              <a class="nav-link" href="<?php echo site_url('product/view_products') ?>">Product</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="services.html">Service</a>
@@ -58,45 +58,23 @@
         <img src="<?php echo base_url('assets/index/img/background3.jpg') ?>" alt="" style="width: 100%; height: 100%;">
         <div class="container">
 
-   <div class="row align-items-start">
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-  <img src="<?php echo base_url('assets/index/img/produk/7.jpg') ?>" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">F Varsity</h5>
-    <p class="card-text"><b>Price: 699k</b></p>
-    <p class="card-text"><b>Material:</b> Fleece, <b>Color:</b> Black&White, <b>Size:</b> M-XL.</p>
-    <a href="#" class="btn btn-primary">Add To Chart</a>
-    <a href="#" class="btn btn-primary">Buy Now</a>
-  </div>
+        <div class="row align-items-start">
+    <?php foreach ($latest_products as $product): ?>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+            <img src="<?php echo base_url('assets/product/' . $product['image_url']); ?>" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $product['name']; ?></h5>
+                    <p class="card-text"><b>Description: <?php echo $product['description']; ?></b></p>
+                    <p class="card-text"><b>Price: <?php echo $product['price']; ?></b></p>
+                    <p class="card-text"><b>Stock: <?php echo $product['stock']; ?></b></p>
+                    <a href="#" class="btn btn-primary">Add To Chart</a>
+                    <a href="#" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
 </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-  <img src="<?php echo base_url('assets/index/img/produk/2.jpg') ?>" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Scrowz Archive Short</h5>
-    <p class="card-text"><b>Price: 199k</b></p>
-    <p class="card-text"><b>Material:</b> Fleece, <b>Color:</b> Black, <b>Size:</b> One Size.</p>
-    <a href="#" class="btn btn-primary">Add To Chart</a>
-    <a href="#" class="btn btn-primary">Buy Now</a>
-  </div>
-</div>
-    </div>
-
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-  <img src="<?php echo base_url('assets/index/img/produk/6.jpg') ?>" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">F-Flame T-Shirt</h5>
-    <p class="card-text"><b>Price: 199k</b></p>
-    <p class="card-text"><b>Material:</b> Cotton 32s, <b>Color:</b> Black, <b>Size:</b> S-XXL.</p>
-    <a href="#" class="btn btn-primary">Add To Chart</a>
-    <a href="#" class="btn btn-primary">Buy Now</a>
-  </div>
-</div>
-    </div>
-  </div>
   </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">

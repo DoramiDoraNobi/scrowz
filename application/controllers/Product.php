@@ -138,6 +138,23 @@ public function delete($id) {
 
 
 }
+
+public function view_products() {
+    $this->load->library('pagination');
+
+    // Konfigurasi paginasi
+    $config['base_url'] = site_url('product/view_products');
+    $config['total_rows'] = $this->Product_model->count_all_products(); // Hitung total produk
+    $config['per_page'] = 10; // Jumlah produk per halaman
+
+    $this->pagination->initialize($config);
+
+    $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+    $data['products'] = $this->Product_model->get_products_paginated($config['per_page'], $page);
+
+    $this->load->view('product/view_product', $data);
+}
+
 }
 
 ?>

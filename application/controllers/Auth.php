@@ -6,10 +6,12 @@ class Auth extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Auth_model');
+        $this->load->model('Product_model');
     }
 
     public function index() {
-        $this->load->view('landing_page');
+        $data['latest_products'] = $this->Product_model->get_latest_products(3);
+        $this->load->view('landing_page', $data);
     }
 
     public function login() {

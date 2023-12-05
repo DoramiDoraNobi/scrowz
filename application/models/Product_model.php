@@ -30,6 +30,21 @@ class Product_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('products');
     }
+
+    public function count_all_products() {
+        return $this->db->count_all('products');
+    }
+    
+    public function get_products_paginated($limit, $offset) {
+        $this->db->limit($limit, $offset);
+        return $this->db->get('products')->result_array();
+    }
+
+    public function get_latest_products($limit = 3) {
+        $this->db->order_by('date_created', 'DESC'); // Mengurutkan produk berdasarkan tanggal dibuat secara descending
+        $this->db->limit($limit); // Batasan jumlah produk yang diambil (3 produk terbaru)
+        return $this->db->get('products')->result_array(); // Mengembalikan array dari 3 produk terbaru
+    }
 }
 
 
