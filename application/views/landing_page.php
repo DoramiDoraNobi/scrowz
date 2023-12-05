@@ -36,9 +36,16 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
+              <?php if ($this->session->userdata('logged_in')) { ?>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('auth/logout') ?>">Logout</a>
+                  <a class="nav-link" href="<?php echo site_url('auth/logout') ?>">Logout</a>
               </li>
+          <?php } else { ?>
+              <li class="nav-item">
+                  <a class="nav-link" href="<?php echo site_url('auth/login') ?>">Login</a>
+              </li>
+          <?php } ?>
+
             </ul>
           </div>    
         </div>
