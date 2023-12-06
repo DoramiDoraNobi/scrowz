@@ -46,7 +46,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="<?php echo site_url('') ?>">
+                            <a class="nav-link" href="<?php echo site_url('design/manage_orders') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Kelola Pesanan
                             </a>

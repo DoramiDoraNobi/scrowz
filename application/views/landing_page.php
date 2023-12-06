@@ -28,7 +28,7 @@
               <a class="nav-link" href="<?php echo site_url('product/view_products') ?>">Product</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="services.html">Service</a>
+                <a class="nav-link" href="<?php echo site_url('design') ?>">Upload Design</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="testimoni.html">Testimonials</a>
